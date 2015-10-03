@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>テーブルのセルを統合/結合 | jQuery Plugin</title>
+<style>
+table, td {
+	border			: 1px gray solid;
+	border-collapse	: collapse;
+}
+
+td {
+	padding			: 5px;
+}
+
+.center {
+	margin-left		: auto;
+	margin-right	: auto;
+}
+</style>
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../src/jquery.cellspan.js"></script>
+<script>
+$(document).ready(function(){
+	target = $('#sample01 table[name=table01]').clone().removeAttr('name');
+	table = $.cellspan(target);
+	table.expand()
+	$('#sample01 > div:eq(1) > h4:eq(0)').after(target);
+
+	target = $('#sample01 table[name=table01]').clone().removeAttr('name');
+	table = $.cellspan(target);
+	table.expand('col');
+	$('#sample01 > div:eq(1) > h4:eq(1)').after(target);
+
+	target = $('#sample02 table[name=table01]').clone().removeAttr('name');
+	table = $.cellspan(target);
+	table.partition()
+	$('#sample02 > div:eq(1) > h4:eq(0)').after(target);
+});
+</script>
+</head>
+<body>
+<h3>空白のセルを結合</h3>
+<div id="sample01" style="display:table; width:100%;">
+	<div style="display:table-cell;width:50%;">
+		<h4>berore</h4>
+		<table name="table01" style="width:90%;" class="center">
+		<tr>
+			<td>1-1</td>
+			<td></td>
+			<td></td>
+			<td>1-2</td>
+		</tr>
+		<tr>
+			<td>2-1</td>
+			<td>2-2</td>
+			<td>2-3</td>
+			<td>2-4</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>3-1</td>
+			<td>3-2</td>
+			<td>3-3</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>4-1</td>
+			<td>4-2</td>
+			<td>4-3</td>
+		</tr>
+		<tr>
+			<td>5-1</td>
+			<td></td>
+			<td></td>
+			<td>5-2</td>
+		</tr>
+		</table>
+	</div>
+	<div style="display:table-cell;width:50%;">
+		<h4>after (縦を優先して結合)</h4>
+		<h4>after (横を優先して結合)</h4>
+	</div>
+</div>
+
+<hr>
+
+<h3>セルの結合を分解</h3>
+<div id="sample02" style="display:table; width:100%;">
+	<div style="display:table-cell;width:50%;">
+		<h4>before</h4>
+		<table name="table01" style="width:90%;" class="center">
+		<tr>
+			<td colspan="2">1-1</td>
+			<td>1-2</td>
+			<td>1-3</td>
+		</tr>
+		<tr>
+			<td rowspan="3">2-1</td>
+			<td>2-2</td>
+			<td>2-3</td>
+			<td>2-4</td>
+		</tr>
+		<tr>
+			<td>3-1</td>
+			<td>3-2</td>
+			<td>3-3</td>
+		</tr>
+		<tr>
+			<td>4-1</td>
+			<td>4-2</td>
+			<td>4-3</td>
+		</tr>
+		<tr>
+			<td rowspan="3">5-1</td>
+			<td rowspan="3">5-2</td>
+			<td>5-3</td>
+			<td rowspan="3">5-4</td>
+		</tr>
+		<tr>
+			<td>6-1</td>
+		</tr>
+		<tr>
+			<td>7-1</td>
+		</tr>
+		<tr>
+			<td rowspan="3" colspan="2">8-1</td>
+			<td>8-2</td>
+			<td rowspan="3">8-3</td>
+		</tr>
+		<tr>
+			<td>9-1</td>
+		</tr>
+		<tr>
+			<td>10-1</td>
+		</tr>
+		</table>
+	</div>
+	<div style="display:table-cell;width:50%;">
+		<h4>after</h4>
+	</div>
+</div>
+
+</body>
+</html>
