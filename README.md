@@ -1,6 +1,8 @@
 # jquery.cellspan
 HTMLテーブルのセルを結合/分割します。
 
+[Demo](http://zkangaroo.github.io/jquery.cellspan/demo/ "Demo")
+
 ## Installation
 ```html
 <script src="/path/to/jquery.cellspan.js"></script>
