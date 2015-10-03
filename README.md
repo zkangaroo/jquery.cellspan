@@ -14,9 +14,25 @@ table.partition(); // 分割
 ```
 
 ## Options
-| name		| type		| default	| description	|
-|:-			|:-			|:-			|:-				|
-| priority	| string	| 'row'		| 結合時の縦/横の優先<br>'row' 縦を優先<br>'col' 横を優先	|
+
+<table>
+<tr>
+	<th>name</th>
+	<th>type</th>
+	<th>default</th>
+	<th>description</th>
+</tr>
+<tr>
+	<td>priority</td>
+	<td>string</td>
+	<td>'row'</td>
+	<td>
+		結合時の縦/横の優先<br>
+		'row' 縦を優先<br>
+		'col' 横を優先
+	</td>
+</tr>
+</table>
 
 ## Method
 ### .expand([priority])
