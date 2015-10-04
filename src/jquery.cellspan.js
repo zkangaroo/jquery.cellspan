@@ -1,5 +1,5 @@
 /**
-*  table cell operation for jQuery, version 0.1.0
+*  cellspan for jQuery, version 0.1.0
 *  (c) 2015 z.kangaroo
 *
 *  table cell operation is freely distributable under the terms of an MIT-style license.
@@ -23,7 +23,10 @@
 				$($('th:empty, td:empty', target).get().reverse()).each(function(){
 					prev = $(this).parent().prev().children().eq($(this).index());
 					if(prev.length){
-						prev.attr('rowspan', (Number($(this).attr('rowspan')) || 1) + 1);
+						var row = (Number($(this).attr('rowspan')) || 1);
+						var col = (Number($(this).attr('colspan')) || 1);
+						if((prev.attr('colspan') || 1) == col)
+							prev.attr('rowspan', row + 1);
 						$(this).remove()
 					}
 				});
