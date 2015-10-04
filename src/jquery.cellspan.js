@@ -25,9 +25,10 @@
 					if(prev.length){
 						var row = (Number($(this).attr('rowspan')) || 1);
 						var col = (Number($(this).attr('colspan')) || 1);
-						if((prev.attr('colspan') || 1) == col)
+						if((prev.attr('colspan') || 1) == col){
 							prev.attr('rowspan', row + 1);
-						$(this).remove()
+							$(this).remove()
+						}
 					}
 				});
 			}
